@@ -1,13 +1,13 @@
-package com.baize.hotelmodel;
+package com.baize.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication
-public class HotelModelApplication {
+public class OrderApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(HotelModelApplication.class, args);
+        SpringApplication.run(OrderApplication.class, args);
     }
-
 }
