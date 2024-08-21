@@ -1,6 +1,6 @@
 package com.baize.model.dto;
 
-import com.baize.model.entity.RoomEntity;
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -9,9 +9,9 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-@TableName("order")
+@TableName("t_order")
 public class OrderDTO {
-    @TableId(value = "order_id")
+    @TableId(value = "order_id", type =IdType.ASSIGN_ID)
     private String orderId;
     @TableField(value = "create_time")
     private String createTime;
@@ -28,5 +28,5 @@ public class OrderDTO {
     @TableField(value = "total_price")
     private Double totalPrice;
     @TableField(exist = false)
-    private List<RoomEntity> roomList;
+    private List<RoomDTO> roomList;
 }
