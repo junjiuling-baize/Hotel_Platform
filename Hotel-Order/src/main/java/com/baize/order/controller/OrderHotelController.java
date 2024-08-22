@@ -44,12 +44,12 @@ public class OrderHotelController {
     /**
      * 订单的生成
      *
-     * @param RoomDTOList 房间 信息集
+     * @param Room 房间 信息
      * @Param UserDto 用户信息
      */
     @PostMapping("/createOrder")
-    public void createOrder(@RequestBody List<RoomDTO> RoomDTOList, @RequestBody OrderDTO UserDto) {
-        String orderId = orderHotelService.addOrder(RoomDTOList, UserDto);
+    public void createOrder(@RequestBody RoomDTO Room, @RequestBody OrderDTO UserDto) {
+        String orderId = orderHotelService.addOrder(Room, UserDto);
         //TODO 后续添加订单生成
     }
 

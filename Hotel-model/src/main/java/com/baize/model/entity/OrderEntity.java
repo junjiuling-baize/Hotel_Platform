@@ -25,6 +25,9 @@ public class OrderEntity {
     private String roomType;
     @ApiModelProperty(value = "总金额")
     private Double totalPrice;
+    @ApiModelProperty(value = "订单是否存在")
+    private Integer isExist;
+
     @ApiModelProperty(value = "房间集")
     private List<RoomEntity> roomList;
 

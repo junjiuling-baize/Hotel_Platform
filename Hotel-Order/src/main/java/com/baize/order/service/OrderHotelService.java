@@ -10,5 +10,5 @@ import java.util.List;
 public interface OrderHotelService extends IService<OrderDTO> {
     List<OrderDTO> getHotelOrder(String hotelId);
 
-    String addOrder(List<RoomDTO> roomDTOList, OrderDTO userDto);
+    String addOrder(RoomDTO  roomDTO, OrderDTO userDto);
 }

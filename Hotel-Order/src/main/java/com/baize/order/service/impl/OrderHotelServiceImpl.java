@@ -26,19 +26,29 @@ public class OrderHotelServiceImpl extends ServiceImpl<OrderHotelMapper, OrderDT
     /**
      * //生成订单
      *
-     * @param RoomDTOList 房间信息集
+     * @param roomDTO 房间 信息
      * @param userDto
      * @return
      */
     @Override
-    public String addOrder(List<RoomDTO> RoomDTOList, OrderDTO userDto) {
+    public String addOrder(RoomDTO roomDTO, OrderDTO userDto) {
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setUserId(userDto.getUserId());
-        orderDTO.setHotelId(RoomDTOList.get(0).getHotelId());
-        orderDTO.setRoomList(RoomDTOList);
+        orderDTO.setHotelId(roomDTO.getHotelId());
+        orderDTO.setRoomDTO(roomDTO);
+        orderDTO.setOrderStatus("待支付");
         orderDTO.setRoomType("实体店");
         orderDTO.setOrderRemark(userDto.getOrderRemark());
         orderHotelMapper.insert(orderDTO);
-        return "";
+        return orderDTO.getOrderId();
+    }
+
+    /**
+     * @param orderId 订单id
+     * @return
+     */
+    public void deleteOrder(String orderId) {
+        orderHotelMapper.deleteById(orderId);
+//        TODO 后续添加返回
     }
 }
